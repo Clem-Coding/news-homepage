@@ -1,9 +1,14 @@
 import React from "react";
+import Header from "../components/layout/Header";
+import HeroImage from "../components/elements/HeroImage";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Test</h1>
-    </div>
+    <>
+      <div className="container">
+        <Header />
+        <HeroImage />
+      </div>
+    </>
   );
 }
