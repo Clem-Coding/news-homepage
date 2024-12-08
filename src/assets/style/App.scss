@@ -37,7 +37,7 @@ $font-size-base: 0.9375rem;
 body {
   font-family: "Inter", Arial, sans-serif;
   font-size: $font-size-base;
-  // line-height: 1;
+  line-height: 1.6;
   background-color: $off-white;
 }
 
@@ -72,6 +72,12 @@ img {
   display: flex;
   justify-content: space-between;
   padding: 2em 0;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 800;
+  margin: 0;
 }
 
 .navbar {
@@ -124,6 +130,19 @@ img {
   transition: opacity 0.3s ease-in-out;
 }
 
+.box3 {
+  background-color: pink;
+}
+.box4 {
+  background-color: pink;
+}
+.box5 {
+  background-color: pink;
+}
+.box6 {
+  background-color: pink;
+}
+
 /**************************************************************/
 /*                      MEDIA QUERIES                       */
 /**************************************************************/
@@ -132,10 +151,21 @@ img {
   .container {
     max-width: 1200px;
     margin: auto;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  header {
+    flex-shrink: 0; /* Empêche la rétraction du header */
+  }
+
+  .main {
+    flex-grow: 1;
+    min-height: 0;
   }
   .navbar_toggle {
-    display: none; /* Cache le bouton burger */
+    display: none;
   }
 
   .navbar_list {
@@ -155,5 +185,57 @@ img {
 
   .navbar_link {
     padding: 1em;
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 1em;
+    height: 100%;
+    flex: 1;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "box1 box1 box3"
+      "box2 box2 box3"
+      "box4 box5 box6";
+
+    overflow: hidden;
+  }
+
+  .main-article {
+    display: flex;
+    gap: 1em;
+  }
+  .main-article > * {
+    flex: 1;
+  }
+  .main-image {
+    grid-area: box1;
+    content: url("./images/image-web-3-desktop.jpg");
+    height: 100%;
+    width: 100%;
+
+    background-size: cover;
+  }
+
+  .main-article {
+    grid-area: box2;
+  }
+
+  .box3 {
+    background-color: pink;
+    grid-area: box3;
+  }
+  .box4 {
+    background-color: pink;
+    grid-area: box4;
+  }
+  .box5 {
+    background-color: pink;
+    grid-area: box5;
+  }
+  .box6 {
+    background-color: pink;
+    grid-area: box6;
   }
 }
