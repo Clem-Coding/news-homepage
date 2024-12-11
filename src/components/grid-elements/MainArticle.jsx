@@ -10,7 +10,7 @@ export default function MainArticle() {
           power of the platforms back into the hands of the people. But is it
           really fulfilling its promise?
         </p>
-        <button>Read More</button>
+        <button className="main-article_button">Read More</button>
       </div>
     </article>
   );

@@ -2,11 +2,8 @@
 /*                        VARIABLES                            */
 /**************************************************************/
 
-// Primary Colors
 $soft-orange: hsl(35, 77%, 62%);
 $soft-red: hsl(5, 85%, 63%);
-
-// Neutral Colors
 $off-white: hsl(36, 100%, 99%);
 $grayish-blue: hsl(233, 8%, 79%);
 $dark-grayish-blue: hsl(236, 13%, 42%);
@@ -16,6 +13,10 @@ $breakpoint-mobile: 375px;
 $breakpoint-desktop: 1440px;
 
 $font-size-base: 0.9375rem;
+$font-size-h1: 3.5rem;
+$font-size-h2: 2.5rem;
+$font-size-h3: 1.25rem;
+$font-size-btn: 0.875rem;
 
 /**************************************************************/
 /*                        FONTS                           */
@@ -66,7 +67,7 @@ img {
 /*                       LAYOUT                       */
 /**************************************************************/
 .container {
-  padding: 1em;
+  padding: 1.5em;
 }
 .header {
   display: flex;
@@ -75,7 +76,7 @@ img {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: $font-size-h1;
   font-weight: 800;
   margin: 0;
 }
@@ -117,6 +118,10 @@ h1 {
     padding: 1.5em;
     color: inherit;
   }
+
+  &_link:hover {
+    color: $soft-red;
+  }
 }
 
 .overlay {
@@ -130,17 +135,84 @@ h1 {
   transition: opacity 0.3s ease-in-out;
 }
 
-.box3 {
-  background-color: pink;
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
 }
-.box4 {
-  background-color: pink;
+.new-section {
+  background-color: $very-dark-blue;
+  color: $off-white;
+  padding: 1em;
+
+  &_title {
+    color: $soft-orange;
+    font-size: $font-size-h2;
+
+    margin: 0;
+  }
+
+  &_subtitle {
+    font-size: $font-size-h3;
+    margin: 0;
+    padding-top: 2em;
+    padding-bottom: 0.5em;
+  }
+
+  &_text {
+    color: $dark-grayish-blue;
+    margin: 0;
+    padding-bottom: 2em;
+    border-bottom: 1px solid $dark-grayish-blue;
+  }
+  &_text:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 }
-.box5 {
-  background-color: pink;
+
+.main-article_button {
+  background-color: $soft-red;
+  padding: 0.7em 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  font-size: $font-size-btn;
+  &:hover {
+    background-color: $very-dark-blue;
+    color: $off-white;
+  }
 }
-.box6 {
-  background-color: pink;
+
+.card {
+  display: flex;
+  gap: 1.5em;
+
+  &_number {
+    font-size: $font-size-h2;
+    color: $soft-red;
+    margin: 0;
+  }
+
+  &_title {
+    font-size: $font-size-h3;
+    color: $very-dark-blue;
+    white-space: nowrap;
+    letter-spacing: -0.05em;
+    margin: 0;
+    font-weight: 800;
+  }
+}
+
+.card > img {
+  flex: 0 0 30%;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+.card-wrapper {
+  flex: 1;
 }
 
 /**************************************************************/
@@ -151,19 +223,8 @@ h1 {
   .container {
     max-width: 1200px;
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
   }
 
-  header {
-    flex-shrink: 0; /* Empêche la rétraction du header */
-  }
-
-  .main {
-    flex-grow: 1;
-    min-height: 0;
-  }
   .navbar_toggle {
     display: none;
   }
@@ -189,22 +250,19 @@ h1 {
 
   .grid-container {
     display: grid;
-    gap: 1em;
-    height: 100%;
-    flex: 1;
-    grid-template-rows: repeat(3, 1fr);
+    gap: 2em;
+    grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "box1 box1 box3"
       "box2 box2 box3"
       "box4 box5 box6";
-
-    overflow: hidden;
   }
 
   .main-article {
     display: flex;
-    gap: 1em;
+    grid-area: box2;
+    gap: 2em;
   }
   .main-article > * {
     flex: 1;
@@ -212,30 +270,23 @@ h1 {
   .main-image {
     grid-area: box1;
     content: url("./images/image-web-3-desktop.jpg");
-    height: 100%;
     width: 100%;
-
-    background-size: cover;
+    // background-size: cover;
   }
 
-  .main-article {
-    grid-area: box2;
-  }
-
-  .box3 {
-    background-color: pink;
+  .new-section {
     grid-area: box3;
   }
-  .box4 {
-    background-color: pink;
+
+  .grid-container > .card:nth-child(4) {
     grid-area: box4;
   }
-  .box5 {
-    background-color: pink;
+
+  .grid-container > .card:nth-child(5) {
     grid-area: box5;
   }
-  .box6 {
-    background-color: pink;
+
+  .grid-container > .card:nth-child(6) {
     grid-area: box6;
   }
 }
