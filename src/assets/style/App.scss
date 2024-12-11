@@ -223,6 +223,7 @@ h1 {
   .container {
     max-width: 1200px;
     margin: auto;
+    padding: 0;
   }
 
   .navbar_toggle {
@@ -250,6 +251,8 @@ h1 {
 
   .grid-container {
     display: grid;
+    height: 100%;
+
     gap: 2em;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(3, 1fr);
@@ -271,7 +274,6 @@ h1 {
     grid-area: box1;
     content: url("./images/image-web-3-desktop.jpg");
     width: 100%;
-    // background-size: cover;
   }
 
   .new-section {
